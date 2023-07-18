@@ -1,8 +1,9 @@
 import './Navbar.css';
+import { useAuth } from '../context/authContext';
 
-import Logout from './Logout';
+export const Navbar = () => {
+  const { logout, user } = useAuth();
 
-export const Navbar = ({ user }) => {
   return (
     <>
       <div className="menu-btn">
@@ -25,16 +26,14 @@ export const Navbar = ({ user }) => {
               <li>
                 <a href="/">Home</a>
               </li>
-              {/* <li>
-                <a href="#">Xbox</a>
-              </li>
               <li>
-                <a href="#">Deals</a>
+                <a href="/dashboard">Dashboard</a>
               </li>
-              <li>
-                <a href="#">Support</a>
-              </li> */}
-              <button>{<Logout user={user} />}</button>
+              {user ? (
+                <li>
+                  <button onClick={logout}>Logout</button>
+                </li>
+              ) : null}
             </ul>
           </nav>
         </header>

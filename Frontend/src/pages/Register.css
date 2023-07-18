@@ -140,7 +140,7 @@ input[type='radio'] {
   width: 49.5%;
 }
 
-input[type='radio']:checked + .label-radio {
+input[type='radio']:checked+.label-radio {
   background: #2f7a67;
   color: #fff !important;
 }

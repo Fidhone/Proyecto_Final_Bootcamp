@@ -8,9 +8,7 @@ export const Dashboard = () => {
   if (!user) {
     return <Navigate to="/login" />;
   }
-  useEffect(() => {
-    console.log(user);
-  }, [user]);
+  useEffect(() => {}, [user]);
 
   return <div>Dashboard</div>;
 };
