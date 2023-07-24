@@ -8,6 +8,7 @@ ul {
 }
 
 
+
 /* Nav */
 .main-nav {
   display: flex;
@@ -15,10 +16,6 @@ ul {
   justify-content: space-between;
   height: 60px;
   padding: 20px 0;
-  font-size: 13px;
-  background-color: black;
-  padding-left: 3rem;
-
 
 }
 
@@ -28,17 +25,16 @@ ul {
 
 .main-nav ul {
   display: flex;
+  justify-content: flex-end;
 }
 
 .main-nav ul li {
   padding: 0 10px;
-
 }
 
 .main-nav ul li a {
   padding-bottom: 2px;
   color: white;
-
 }
 
 .main-nav ul li a:hover {
@@ -68,7 +64,6 @@ ul {
   background: #262626;
   color: #fff;
   font-size: 15px;
-  ;
 }
 
 .btn:hover {
@@ -84,9 +79,7 @@ ul {
   color: #333;
 }
 
-
-@media(max-width: 700px) {
-
+@media (max-width: 700px) {
   .menu-btn {
     display: block;
     color: white;
@@ -108,10 +101,7 @@ ul {
     margin-right: 50px;
   }
 
-
-
   .main-nav ul.main-menu {
-
     display: block;
     position: absolute;
     top: 0;

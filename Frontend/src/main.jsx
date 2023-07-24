@@ -11,7 +11,7 @@ import {
   ForgotPassword,
   Home,
   Login,
-  // Profile,
+  Profile,
   Register,
   VerifyCode,
 } from './pages';
@@ -28,6 +28,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
             <Route path="/login" element={<Login />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/forgotpassword" element={<ForgotPassword />} />
+            <Route path="/profile" element={<Profile />} />
           </Route>
         </Routes>
       </AuthContextProvider>

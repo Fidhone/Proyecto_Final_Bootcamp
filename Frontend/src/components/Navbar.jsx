@@ -1,4 +1,5 @@
 import './Navbar.css';
+
 import { useAuth } from '../context/authContext';
 
 export const Navbar = () => {
@@ -17,21 +18,31 @@ export const Navbar = () => {
               alt=""
             />
             <ul className="main-menu">
-              <li>
-                <a href="/register">Sign Up</a>
-              </li>
-              <li>
-                <a href="/login">Sign In</a>
-              </li>
-              <li>
-                <a href="/">Home</a>
-              </li>
-              <li>
-                <a href="/dashboard">Dashboard</a>
-              </li>
+              {!user ? (
+                <li>
+                  <a href="/register">Registrate</a>
+                </li>
+              ) : null}
+              {!user ? (
+                <li>
+                  <a href="/login">Inicio de sesion</a>
+                </li>
+              ) : null}
               {user ? (
                 <li>
-                  <button onClick={logout}>Logout</button>
+                  <a href="/dashboard">Inicio</a>
+                </li>
+              ) : null}
+              {user ? (
+                <li>
+                  <a href="/profile">Perfil</a>
+                </li>
+              ) : null}
+              {user ? (
+                <li>
+                  <a href="/" onClick={logout}>
+                    Cerrar sesion
+                  </a>
                 </li>
               ) : null}
             </ul>
