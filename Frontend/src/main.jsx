@@ -7,6 +7,9 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import App from './App.jsx';
 import { AuthContextProvider } from './context/authContext.jsx';
 import {
+  AboutUs,
+  Admin,
+  Contact,
   Dashboard,
   ForgotPassword,
   Home,
@@ -14,9 +17,6 @@ import {
   Profile,
   Register,
   VerifyCode,
-  Admin,
-  Contact,
-  AboutUs,
 } from './pages';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
