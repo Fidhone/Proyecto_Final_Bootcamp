@@ -18,6 +18,11 @@ export const Navbar = () => {
               alt=""
             />
             <ul className="main-menu">
+              {user?.rol == 'admin' ? (
+                <li>
+                  <a href="/admin">Administrador</a>
+                </li>
+              ) : null}
               {!user ? (
                 <li>
                   <a href="/register">Registrate</a>
@@ -36,6 +41,16 @@ export const Navbar = () => {
               {user ? (
                 <li>
                   <a href="/profile">Perfil</a>
+                </li>
+              ) : null}
+              {user ? (
+                <li>
+                  <a href="/contact">Contacto</a>
+                </li>
+              ) : null}
+              {user ? (
+                <li>
+                  <a href="/aboutus">Acerca de Nosotros</a>
                 </li>
               ) : null}
               {user ? (

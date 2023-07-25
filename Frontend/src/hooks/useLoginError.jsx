@@ -22,6 +22,7 @@ export const useLoginError = (res, setLoginOk, userlogin) => {
       email: res.data.user.email,
       image: res.data.user.image,
       check: res.data.user.check,
+      rol: res.data.user.rol,
     };
 
     const dataString = JSON.stringify(dataCustom);

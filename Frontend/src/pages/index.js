@@ -5,3 +5,6 @@ export * from './Login';
 export * from './VerifyCode';
 export * from './Profile';
 export * from './Register';
+export * from './Admin';
+export * from './Contact';
+export * from './AboutUs';

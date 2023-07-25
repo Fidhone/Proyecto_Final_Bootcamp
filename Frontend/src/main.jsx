@@ -14,6 +14,9 @@ import {
   Profile,
   Register,
   VerifyCode,
+  Admin,
+  Contact,
+  AboutUs,
 } from './pages';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -29,6 +32,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/forgotpassword" element={<ForgotPassword />} />
             <Route path="/profile" element={<Profile />} />
+            <Route path="/admin" element={<Admin />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/aboutus" element={<AboutUs />} />
           </Route>
         </Routes>
       </AuthContextProvider>
