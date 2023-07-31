@@ -29,7 +29,7 @@ UserRoutes.get('/getAllUsers', [isAuthAdmin], getAllUsers);
 UserRoutes.get('/getById/:_id', [isAuthAdmin], getById);
 UserRoutes.patch('/changepassword', [isAuth], modifyPassword);
 // UserRoutes.patch('/changeEmail/:_id', [isAuth], modifyEmail);
-UserRoutes.patch('/update/update', [isAuthAdmin], update);
+UserRoutes.patch('/update/update', [isAuth], update);
 UserRoutes.delete('/', [isAuth], deleteUser);
 
 //! -------REDIRECT --------------------

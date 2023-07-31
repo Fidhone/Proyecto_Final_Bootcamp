@@ -1,0 +1,53 @@
+.containerNavProfile {
+  background-color: goldenrod;
+  height: 12vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  margin-top: 5vh;
+  gap: 1rem;
+}
+
+.iconChangeName {
+  object-fit: cover;
+  color: aliceblue;
+  font-size: x-large;
+}
+
+.iconChangeName:hover {
+  text-decoration: underline;
+  text-decoration-color: aliceblue;
+  color: aliceblue;
+  cursor: pointer;
+}
+
+.iconChangePassword {
+  color: aliceblue;
+  font-size: x-large;
+}
+
+.iconChangePassword:hover {
+  text-decoration: underline;
+  text-decoration-color: aliceblue;
+  color: aliceblue;
+  cursor: pointer;
+}
+
+.iconDeleteUser {
+  border-radius: 50%;
+  color: aliceblue;
+  font-size: x-large;
+}
+
+.iconDeleteUser:hover {
+  text-decoration: underline;
+  text-decoration-color: aliceblue;
+  color: aliceblue;
+  cursor: pointer;
+}
+
+.fluidContainerProfile {
+  min-height: 55vh;
+  margin-bottom: 5vh;
+}
