@@ -43,7 +43,7 @@ a {
 }
 
 .form-wrap .form-group label {
-  color: goldenrod;
+
   font-weight: normal;
 }
 
@@ -98,14 +98,6 @@ a {
   margin-top: 15px;
 }
 
-footer a {
-  color: #49c1a2;
-}
-
-footer a:hover {
-  color: #37a08e;
-}
-
 .btn:disabled {
   background-color: navajowhite;
 }
@@ -138,6 +130,7 @@ input[type='radio'] {
   padding: 10px;
   text-align: center;
   width: 49.5%;
+  cursor: pointer;
 }
 
 input[type='radio']:checked+.label-radio {

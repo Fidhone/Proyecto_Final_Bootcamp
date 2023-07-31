@@ -39,13 +39,7 @@ export const ButtonReSend = ({ setReloadPageError }) => {
   }, [res]);
 
   return (
-    <button
-      id="btnResend"
-      className="btn"
-      disabled={send}
-      style={{ background: send ? '#49c1a388' : '#49c1a2' }}
-      onClick={() => handleReSend()}
-    >
+    <button id="btnResend" className="btn" disabled={send} onClick={() => handleReSend()}>
       Resend Code
     </button>
   );

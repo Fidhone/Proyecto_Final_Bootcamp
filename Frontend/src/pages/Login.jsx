@@ -75,12 +75,7 @@ export const Login = () => {
           </div>
 
           <div className="btn_container">
-            <button
-              className="btn"
-              type="submit"
-              disabled={send}
-              style={{ background: send ? '#49c1a388' : '#49c1a2' }}
-            >
+            <button className="btn" type="submit" disabled={send}>
               LOGIN
             </button>
           </div>

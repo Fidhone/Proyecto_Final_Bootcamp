@@ -24,6 +24,7 @@ export const useDeleteUser = (setUser) => {
           });
           setUser(() => null);
           localStorage.removeItem('user');
+          window.location.href = '/';
           break;
 
         default:
