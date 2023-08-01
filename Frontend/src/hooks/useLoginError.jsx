@@ -30,7 +30,7 @@ export const useLoginError = (res, setLoginOk, userlogin) => {
     setLoginOk(() => true);
     Swal.fire({
       icon: 'success',
-      title: 'Welcome to my Page',
+      title: 'Welcome!',
       text: 'Login ok ✅',
       showConfirmButton: false,
       timer: 1500,

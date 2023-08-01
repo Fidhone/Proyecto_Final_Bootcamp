@@ -1,0 +1,10 @@
+.dashboard-main {
+    height: 100vh;
+}
+
+.img-dashboard {
+    width: 100%;
+    height: calc(100% - 100px);
+    object-fit: cover;
+    padding-top: 3rem;
+}

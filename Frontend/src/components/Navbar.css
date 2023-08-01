@@ -15,10 +15,13 @@ ul {
   padding: 20px 0;
   padding-top: 4rem;
   font-size: x-large;
-
 }
 
 
+.img-logo-letering {
+  margin-top: 1rem;
+  margin-left: -3rem;
+}
 
 .main-nav ul {
   display: flex;

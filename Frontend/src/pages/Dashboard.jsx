@@ -1,14 +1,13 @@
-import { useEffect } from 'react';
-import { Navigate } from 'react-router-dom';
-
-import { useAuth } from '../context/authContext';
+import './Dashboard.css';
 
 export const Dashboard = () => {
-  const { user } = useAuth();
-  if (!user) {
-    return <Navigate to="/login" />;
-  }
-  useEffect(() => {}, [user]);
-
-  return <div>Dashboard</div>;
+  return (
+    <div className="dasboard-main">
+      <img
+        className="img-dashboard"
+        src="https://e0.pxfuel.com/wallpapers/753/862/desktop-wallpaper-yellow-lamborghini.jpg"
+        alt="imagen dashboard"
+      />
+    </div>
+  );
 };

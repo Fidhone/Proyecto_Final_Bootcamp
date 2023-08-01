@@ -18,9 +18,14 @@ export const Navbar = () => {
         <header>
           <nav className="main-nav">
             <img
-              className="img-logo"
+              className="img-logo-car"
               src="https://us.123rf.com/450wm/katre/katre1211/katre121100002/16229564-logo-autom%C3%B3vil-dorado.jpg?ver=6"
-              alt="logo compañia"
+              alt="logo coche compañia"
+            />
+            <img
+              className="img-logo-letering"
+              src="./images/Letrero-compañia1.jpg"
+              alt="logo letrero compañia"
             />
             <ul className={`main-menu ${showMenu ? 'show' : ''}`}>
               {user?.rol === 'admin' && (
