@@ -1,4 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,500,300,700);
+@import '@fortawesome/fontawesome-free/css/all.min.css';
 
 * {
     font-family: Open Sans;
@@ -23,6 +24,7 @@ section {
     text-align: left;
     font: bold 16px sans-serif;
     padding: 55px 50px;
+    font-size: x-large;
 }
 
 .footer-distributed .footer-left,
@@ -30,6 +32,7 @@ section {
 .footer-distributed .footer-right {
     display: inline-block;
     vertical-align: top;
+
 }
 
 /* Footer left */
@@ -47,7 +50,7 @@ section {
 }
 
 .footer-distributed h3 span {
-    color: lightseagreen;
+    color: goldenrod;
 }
 
 /* Footer links */
@@ -56,6 +59,7 @@ section {
     color: #ffffff;
     margin: 20px 0 12px;
     padding: 0;
+
 }
 
 .footer-distributed .footer-links a {
@@ -71,6 +75,7 @@ section {
     font-size: 14px;
     font-weight: normal;
     margin: 0;
+    font-size: x-large;
 }
 
 /* Footer Center */
@@ -108,18 +113,17 @@ section {
 .footer-distributed .footer-center p span {
     display: block;
     font-weight: normal;
-    font-size: 14px;
+    font-size: x-large;
     line-height: 2;
 }
 
 .footer-distributed .footer-center p a {
-    color: lightseagreen;
+    color: goldenrod;
     text-decoration: none;
-    ;
 }
 
 .footer-distributed .footer-links a:before {
-    content: "|";
+    content: '|';
     font-weight: 300;
     font-size: 20px;
     left: 0;
@@ -144,6 +148,7 @@ section {
     font-size: 13px;
     font-weight: normal;
     margin: 0;
+    font-size: x-large;
 }
 
 .footer-distributed .footer-company-about span {
@@ -152,6 +157,7 @@ section {
     font-size: 14px;
     font-weight: bold;
     margin-bottom: 20px;
+    font-size: x-large;
 }
 
 .footer-distributed .footer-icons {
@@ -163,10 +169,10 @@ section {
     width: 35px;
     height: 35px;
     cursor: pointer;
-    background-color: #33383b;
+    background-color: #3b3339;
     border-radius: 2px;
 
-    font-size: 20px;
+    font-size: x-large;
     color: #ffffff;
     text-align: center;
     line-height: 35px;
@@ -178,7 +184,6 @@ section {
 /* If you don't want the footer to be responsive, remove these media queries */
 
 @media (max-width: 880px) {
-
     .footer-distributed {
         font: bold 14px sans-serif;
     }
@@ -195,5 +200,4 @@ section {
     .footer-distributed .footer-center i {
         margin-left: 0;
     }
-
 }

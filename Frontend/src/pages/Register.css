@@ -26,11 +26,15 @@ a {
 }
 
 .form-wrap {
-  margin-top: 2rem;
+  margin-top: 10rem;
+  margin-bottom: 10rem;
   background: #f7fffa;
   padding: 15px 25px 30px;
   color: #333;
   border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .form-wrap h1,
@@ -43,7 +47,6 @@ a {
 }
 
 .form-wrap .form-group label {
-
   font-weight: normal;
 }
 
