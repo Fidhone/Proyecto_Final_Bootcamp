@@ -7,6 +7,8 @@ const CarSchema = new Schema(
     modelo: { type: String, required: true },
     color: { type: String, required: true },
     año: { type: Number, required: true },
+    kilometros: { type: Number, required: true },
+    precio: { type: Number, required: true },
     usuarios: [{ type: mongoose.Types.ObjectId, ref: 'User' }],
   },
   {

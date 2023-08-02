@@ -5,7 +5,7 @@ export const Dashboard = () => {
     <div className="dasboard-main">
       <img
         className="img-dashboard"
-        src="https://e0.pxfuel.com/wallpapers/753/862/desktop-wallpaper-yellow-lamborghini.jpg"
+        src="https://img2.wallspic.com/crops/2/2/5/7/3/137522/137522-supercoche-deportivo-transporte-amarillo-3840x2160.jpg"
         alt="imagen dashboard"
       />
     </div>

@@ -10,20 +10,18 @@ export const Footer = () => {
         </h3>
 
         <p className="footer-links">
-          <a href="#" className="link-1">
-            Inicio
-          </a>
+          <a className="link-1">Inicio</a>
 
-          <a href="#">Blog</a>
+          <a>Blog</a>
 
-          <a href="#">Galeria</a>
+          <a>Galeria</a>
 
-          <a href="#">Faq</a>
+          <a>Faq</a>
 
-          <a href="#">Contacto</a>
+          <a>Contacto</a>
         </p>
 
-        <p className="footer-company-name">Coches FTM © 2023</p>
+        <p className="footer-company-name">CochesFTM Company © 2023</p>
       </div>
 
       <div className="footer-center">
@@ -55,17 +53,17 @@ export const Footer = () => {
         </p>
 
         <div className="footer-icons">
-          <a href="#">
-            <i className="fa fa-facebook"></i>
+          <a>
+            <i className="fa-brands fa-facebook"></i>
           </a>
-          <a href="#">
-            <i className="fa fa-twitter"></i>
+          <a>
+            <i className="fa-brands fa-twitter"></i>
           </a>
-          <a href="#">
-            <i className="fa fa-linkedin"></i>
+          <a>
+            <i className="fa-brands fa-linkedin"></i>
           </a>
-          <a href="#">
-            <i className="fa fa-github"></i>
+          <a>
+            <i className="fa-brands fa-github"></i>
           </a>
         </div>
       </div>

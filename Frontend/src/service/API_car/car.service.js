@@ -4,7 +4,6 @@ import { APIcar } from './serviceApiCar.config';
 //! -------------------------------NUEVO VEHICULO -----------------------------------
 
 export const newCar = async (formData) => {
-  console.log(formData);
   return APIcar.post('/registerCar', formData, {
     headers: {
       Authorization: `Bearer ${updateToken()}`,

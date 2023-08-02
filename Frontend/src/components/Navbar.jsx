@@ -1,6 +1,8 @@
 import './Navbar.css';
-import { useAuth } from '../context/authContext';
+
 import { useState } from 'react';
+
+import { useAuth } from '../context/authContext';
 
 export const Navbar = () => {
   const { logout, user } = useAuth();

@@ -5,6 +5,7 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import App from './App.jsx';
+import { Protected, ProtectedCheckChildren } from './components';
 import { AuthContextProvider } from './context/authContext.jsx';
 import {
   AboutUs,
@@ -26,15 +27,71 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Routes>
           <Route path="/" element={<App />}>
             <Route index element={<Home />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/verifyCode" element={<VerifyCode />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/dashboard" element={<Dashboard />} />
+            <Route
+              path="/register"
+              element={
+                <ProtectedCheckChildren>
+                  <Register />
+                </ProtectedCheckChildren>
+              }
+            />
+            <Route
+              path="/verifyCode"
+              element={
+                <ProtectedCheckChildren>
+                  <VerifyCode />
+                </ProtectedCheckChildren>
+              }
+            />
             <Route path="/forgotpassword" element={<ForgotPassword />} />
-            <Route path="/profile" element={<Profile />} />
-            <Route path="/admin" element={<Admin />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/aboutus" element={<AboutUs />} />
+            <Route
+              path="/login"
+              element={
+                <ProtectedCheckChildren>
+                  <Login />
+                </ProtectedCheckChildren>
+              }
+            />
+            <Route
+              path="/dashboard"
+              element={
+                <Protected>
+                  <Dashboard />
+                </Protected>
+              }
+            />
+            <Route
+              path="/profile"
+              element={
+                <Protected>
+                  <Profile />
+                </Protected>
+              }
+            />
+            <Route
+              path="/admin"
+              element={
+                <Protected>
+                  <Admin />
+                </Protected>
+              }
+            />
+            <Route
+              path="/contact"
+              element={
+                <Protected>
+                  <Contact />
+                </Protected>
+              }
+            />
+            <Route
+              path="/aboutus"
+              element={
+                <Protected>
+                  <AboutUs />
+                </Protected>
+              }
+            />
           </Route>
         </Routes>
       </AuthContextProvider>

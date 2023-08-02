@@ -10,7 +10,7 @@ const APIHeaders = {
 };
 
 export const APIcar = axios.create({
-  baseURL: `http://localhost:8080/api/v1/car`,
+  baseURL: `http://localhost:8080/api/v1/cars`,
   headers: APIHeaders,
   timeout: 600000,
 });
