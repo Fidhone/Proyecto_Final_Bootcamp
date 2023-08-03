@@ -18,6 +18,7 @@ import {
   Profile,
   Register,
   VerifyCode,
+  Galery,
 } from './pages';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -89,6 +90,14 @@ ReactDOM.createRoot(document.getElementById('root')).render(
               element={
                 <Protected>
                   <AboutUs />
+                </Protected>
+              }
+            />
+            <Route
+              path="/galery"
+              element={
+                <Protected>
+                  <Galery />
                 </Protected>
               }
             />

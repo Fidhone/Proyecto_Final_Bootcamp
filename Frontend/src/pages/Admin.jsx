@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { newCar } from '../service/API_car/car.service';
+import { useRegisterCarError } from '../hooks';
 
 export const Admin = () => {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, reset } = useForm();
   const [res, setRes] = useState({});
 
   //! ---------- FUNCION QUE GESTIONA LA DATA DEL FORMULARIO-----------------------
@@ -13,10 +14,12 @@ export const Admin = () => {
 
   //! ---------USEffect ASOCIADO A LA RES PARA GESTIONAR LOS ERRORES----------------
   useEffect(() => {
-    // Aquí puedes manejar los errores de respuesta si es necesario
-  }, [res]);
+    useRegisterCarError(res);
+    if (res.status === 201) {
+      reset();
+    }
+  }, [res, reset]);
 
-  //! ---------- EL FORMULARIO SIMILAR AL QUE MOSTRASTE PARA Login --------------
   return (
     <div className="form-wrap">
       <h2>Registrar Nuevo Vehiculo</h2>
@@ -43,9 +46,8 @@ export const Admin = () => {
         </div>
         <div className="form-group">
           <label htmlFor="custom-input">Precio:</label>
-          <input type="text" {...register('Precio', { required: true })} />
+          <input type="text" {...register('precio', { required: true })} />
         </div>
-
         <button className="btn" type="submit">
           Registrar
         </button>

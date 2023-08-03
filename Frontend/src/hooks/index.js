@@ -6,3 +6,4 @@ export * from './useRegisterError';
 export * from './useResendCodeError';
 export * from './useUpdateError';
 export * from './useVerifyCodeError';
+export * from './useRegisterCarError';
