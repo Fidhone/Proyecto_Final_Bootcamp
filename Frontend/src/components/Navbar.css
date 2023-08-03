@@ -27,6 +27,7 @@ ul {
 
 /* Media query para pantallas más pequeñas, por ejemplo, dispositivos móviles */
 @media (max-width: 768px) {
+
   .img-logo-car,
   .img-logo-letering {
     max-width: 50%;

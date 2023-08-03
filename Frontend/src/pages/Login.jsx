@@ -89,11 +89,6 @@ export const Login = () => {
           </p>
         </form>
       </div>
-      <div className="footerForm">
-        <p className="parrafoLogin">
-          Are you not registered? <Link to="/register">Register Here</Link>
-        </p>
-      </div>
     </>
   );
 };

@@ -13,12 +13,13 @@ import {
   Contact,
   Dashboard,
   ForgotPassword,
+  Galery,
   Home,
   Login,
   Profile,
   Register,
   VerifyCode,
-  Galery,
+  NotFound,
 } from './pages';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -102,6 +103,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
               }
             />
           </Route>
+          <Route path="*" element={<NotFound />}></Route>
         </Routes>
       </AuthContextProvider>
     </BrowserRouter>

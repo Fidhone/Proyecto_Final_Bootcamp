@@ -23,7 +23,6 @@ export const Register = () => {
   };
 
   useEffect(() => {
-    console.log(res);
     useRegisterError(res, setOkRegister, setRes, setAllUser);
     if (res?.status == 201) bridgeData('ALLUSER');
   }, [res]);
@@ -113,11 +112,6 @@ export const Register = () => {
             </small>
           </p>
         </form>
-      </div>
-      <div className="footerForm">
-        <p className="parrafoLogin">
-          Already have an account? <Link to="/login">Login Here</Link>
-        </p>
       </div>
     </>
   );

@@ -58,6 +58,7 @@ section {
   color: #ffffff;
   margin: 20px 0 12px;
   padding: 0;
+  cursor: pointer;
 }
 
 .footer-distributed .footer-links a {
