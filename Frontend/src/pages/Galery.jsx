@@ -1,66 +1,74 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './Galery.css';
+import { getAllCars, getAllCarImages } from '../service/API_car/car.service.js';
+
 export const Galery = () => {
+  const [cars, setCars] = useState([]);
+  const [carImages, setCarImages] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await getAllCars();
+        if (response.status === 200) {
+          setCars(response.data);
+        } else {
+          console.error('Error al obtener la lista de coches');
+        }
+      } catch (error) {
+        console.error('Error al obtener la lista de coches:', error);
+      }
+    };
+
+    fetchData();
+
+    const fetchCarImages = async () => {
+      try {
+        const images = await getAllCarImages();
+        setCarImages(images);
+      } catch (error) {
+        console.error('Error al obtener las imágenes de coches:', error);
+      }
+    };
+
+    fetchCarImages();
+  }, []);
+
   return (
     <>
       <div className="header">
         <h1>Galeria</h1>
       </div>
-      <div className="car">
-        <img
-          className="image"
-          width="23%"
-          src="https://images.pexels.com/photos/6462662/pexels-photo-6462662.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-          alt="Lamo parked on road"
-        />
-        <img
-          className="image"
-          width="23%"
-          src="https://images.pexels.com/photos/5288701/pexels-photo-5288701.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-          alt="lambo on road"
-        />
-        <img
-          className="image"
-          width="23%"
-          src="https://images.pexels.com/photos/6894430/pexels-photo-6894430.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-          alt="lambo parked"
-        />
-        <img
-          className="image"
-          width="23%"
-          src="https://images.pexels.com/photos/7730780/pexels-photo-7730780.jpeg?auto=compress&cs=tinysrgb&w=400"
-          alt="Urus in beach"
-        />
-        <img
-          className="image"
-          width="23%"
-          src="https://images.pexels.com/photos/6891809/pexels-photo-6891809.jpeg?auto=compress&cs=tinysrgb&w=400"
-          alt="Pink lambo"
-        />
-        <img
-          className="image"
-          width="23%"
-          src="https://images.pexels.com/photos/6453068/pexels-photo-6453068.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-          alt="Lambo with open doors"
-        />
-        <img
-          className="image"
-          width="23%"
-          src="https://images.pexels.com/photos/4984313/pexels-photo-4984313.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-          alt="Lambo Interior"
-        />
-        <img
-          className="image"
-          width="23%"
-          src="https://images.pexels.com/photos/9545683/pexels-photo-9545683.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-          alt="Lambo Exhaust"
-        />
-        <img
-          className="image"
-          width="23%"
-          src="https://images.pexels.com/photos/9784204/pexels-photo-9784204.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-          alt="Lamborghini logo"
-        />
+      <div className="car-container">
+        {cars.map((car, index) => (
+          <div key={car._id} className="car-item">
+            <img
+              className="image"
+              src={carImages[index]}
+              alt={`${car.marca} ${car.modelo}`}
+            />
+            <div className="car-details">
+              <p>
+                <strong>Marca:</strong> {car.marca}
+              </p>
+              <p>
+                <strong>Modelo:</strong> {car.modelo}
+              </p>
+              <p>
+                <strong>Color:</strong> {car.color}
+              </p>
+              <p>
+                <strong>Año:</strong> {car.año}
+              </p>
+              <p>
+                <strong>Kilómetros:</strong> {car.kilometros}
+              </p>
+              <p>
+                <strong>Precio:</strong> {car.precio}
+              </p>
+            </div>
+          </div>
+        ))}
       </div>
     </>
   );
