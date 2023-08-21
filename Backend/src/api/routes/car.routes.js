@@ -14,7 +14,7 @@ const CarRoutes = express.Router();
 CarRoutes.post('/registerCar', [isAuthAdmin], registerCar);
 CarRoutes.patch('/updateCar/:_id', [isAuthAdmin], updateCar);
 CarRoutes.delete('/deleteCar/:_id', [isAuthAdmin], deleteCar);
-CarRoutes.get('/getAllCars', [isAuthAdmin], getAllCars);
+CarRoutes.get('/getAllCars', getAllCars);
 CarRoutes.get('/getbyId/:_id', [isAuthAdmin], getById);
 
 module.exports = CarRoutes;

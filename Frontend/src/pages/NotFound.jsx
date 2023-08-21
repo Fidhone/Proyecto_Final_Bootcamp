@@ -1,5 +1,7 @@
 import React from 'react';
 import './NotFound.css';
+import { Link } from 'react-router-dom';
+
 export const NotFound = () => {
   return (
     <div className="container-found">
@@ -7,13 +9,13 @@ export const NotFound = () => {
         <img src="https://i.postimg.cc/2yrFyxKv/giphy.gif" alt="gif_ing" />
       </div>
       <div className="content">
-        <h1 className="main-heading">Esta pagina no existe.</h1>
+        <h1 className="main-heading">Esta página no existe.</h1>
         <p>...Quizás la página que estás buscando no se encuentra o nunca existió.</p>
-        <a href="https://www.google.co.in/" target="blank">
+        <Link to="/dashboard">
           <button className="btn-found">
             Volver al inicio <i className="far fa-hand-point-right"></i>
           </button>
-        </a>
+        </Link>
       </div>
     </div>
   );

@@ -39,3 +39,45 @@ body {
     margin-top: 10px;
     color: white;
 }
+
+/* Galery.css */
+
+
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: goldenrod;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 3rem;
+}
+
+.filters select,
+.filters input[type="text"],
+.filters input[type="number"] {
+    margin: 5px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.filters button {
+    margin: 5px;
+    padding: 8px 15px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.reset-button {
+    margin-top: 10px;
+    padding: 8px 15px;
+    background-color: #ccc;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
