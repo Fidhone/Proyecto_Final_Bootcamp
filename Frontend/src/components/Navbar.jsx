@@ -60,7 +60,7 @@ export const Navbar = () => {
                     <a href="/contact">Contacto</a>
                   </li>
                   <li>
-                    <a href="/aboutus">Acerca de Nosotros</a>
+                    <a href="/aboutus">Preguntas frecuentes</a>
                   </li>
                   <li>
                     <a href="/" onClick={logout}>

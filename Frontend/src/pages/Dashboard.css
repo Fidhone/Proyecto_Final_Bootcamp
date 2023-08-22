@@ -5,17 +5,14 @@
 .img-dashboard-discount {
   width: 100%;
   object-fit: cover;
-  padding-top: 3rem;
+  margin-bottom: -2rem;
+
 }
 
 .img-dashboard-lamboYellow {
   width: 100%;
   height: calc(100% - 100px);
   object-fit: cover;
-
-}
-
-.img-dashboard-lamboBlack {
-  width: 100%;
-  object-fit: cover;
+  padding-top: 3rem;
+  margin-bottom: -2rem;
 }
