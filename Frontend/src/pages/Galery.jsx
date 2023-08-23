@@ -1,8 +1,17 @@
-import React, { useState, useEffect } from 'react';
 import './Galery.css';
-import { getAllCars, getAllCarImages } from '../service/API_car/car.service.js';
+
+import React, { useEffect, useState } from 'react';
+
+import { useDeleteCarError } from '../hooks';
+import {
+  deleteCar,
+  getAllCarImages,
+  getAllCars,
+} from '../service/API_car/car.service.js';
+import { useAuth } from '../context/authContext';
 
 export const Galery = () => {
+  const { user } = useAuth();
   const [cars, setCars] = useState([]);
   const [carImages, setCarImages] = useState([]);
   const [marcaFilter, setMarcaFilter] = useState('');
@@ -11,6 +20,7 @@ export const Galery = () => {
   const [kilometrosFilter, setKilometrosFilter] = useState('');
   const [precioMinFilter, setPrecioMinFilter] = useState('');
   const [precioMaxFilter, setPrecioMaxFilter] = useState('');
+  const [res, setRes] = useState({});
 
   useEffect(() => {
     const fetchData = async () => {
@@ -36,7 +46,6 @@ export const Galery = () => {
         console.error('Error al obtener las imágenes de coches:', error);
       }
     };
-
     fetchCarImages();
   }, []);
 
@@ -72,11 +81,20 @@ export const Galery = () => {
     }
   };
 
+  const handleDeleteCar = async (carId) => {
+    try {
+      setRes(await deleteCar(carId));
+      fetchData();
+    } catch (error) {
+      console.error('Error al borrar el vehículo:', error);
+    }
+  };
+  useEffect(() => {
+    useDeleteCarError(res);
+  }, [res]);
+
   return (
     <>
-      <div className="header">
-        <h1>Galeria</h1>
-      </div>
       <div className="filters">
         <select onChange={(e) => setMarcaFilter(e.target.value)}>
           <option value="">Todas las marcas</option>
@@ -147,8 +165,16 @@ export const Galery = () => {
                 <strong>Kilómetros:</strong> {car.kilometros}
               </p>
               <p>
-                <strong>Precio:</strong> {car.precio}
+                <strong>Precio:</strong> {car.precio} €
               </p>
+              {user?.rol === 'admin' && (
+                <button
+                  className="btn-deleteCar"
+                  onClick={() => handleDeleteCar(car._id)}
+                >
+                  Borrar vehículo
+                </button>
+              )}
             </div>
           </div>
         ))}

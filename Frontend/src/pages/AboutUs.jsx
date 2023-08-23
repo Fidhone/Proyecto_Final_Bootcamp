@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
 import '../pages/AboutUs.css';
+
+import React, { useState } from 'react';
 
 export const AboutUs = () => {
   const [activeIndex, setActiveIndex] = useState(null);

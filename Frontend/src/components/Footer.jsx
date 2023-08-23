@@ -28,7 +28,7 @@ export const Footer = () => {
         <div>
           <i className="fa fa-map-marker"></i>
           <p>
-            <span>C/Falsa 123</span> 28850 Crater nebula, Marte.
+            <span>C/Los peces 123</span> 28850 Crater nebula, Marte.
           </p>
         </div>
 

@@ -1,5 +1,6 @@
-import React from 'react';
 import './Contact.css';
+
+import React from 'react';
 export const Contact = () => {
   return (
     <div className="form-main">
@@ -13,13 +14,13 @@ export const Contact = () => {
               name="full_name"
               required="required"
             />
-            <label className="form-label" for="full_name">
+            <label className="form-label" htmlFor="full_name">
               Nombre completo
             </label>
           </div>
           <div className="form-card">
             <input className="form-input" type="email" name="email" required="required" />
-            <label className="form-label" for="email">
+            <label className="form-label" htmlFor="email">
               Email
             </label>
           </div>
@@ -30,7 +31,7 @@ export const Contact = () => {
               name="phone_number"
               required="required"
             />
-            <label className="form-label" for="phone_number">
+            <label className="form-label" htmlFor="phone_number">
               Numero de telefono
             </label>
           </div>
@@ -43,7 +44,7 @@ export const Contact = () => {
               name="phone_number"
               required="required"
             ></textarea>
-            <label className="form-textarea-label" for="Comment">
+            <label className="form-textarea-label" htmlFor="Comment">
               Comentanos brevemente sobre que vehiculo necesita informacion
             </label>
           </div>

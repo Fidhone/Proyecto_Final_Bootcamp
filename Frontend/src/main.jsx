@@ -16,10 +16,10 @@ import {
   Galery,
   Home,
   Login,
+  NotFound,
   Profile,
   Register,
   VerifyCode,
-  NotFound,
 } from './pages';
 
 ReactDOM.createRoot(document.getElementById('root')).render(

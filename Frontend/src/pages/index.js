@@ -6,7 +6,7 @@ export * from './ForgotPassword';
 export * from './Galery';
 export * from './Home';
 export * from './Login';
+export * from './NotFound';
 export * from './Profile';
 export * from './Register';
 export * from './VerifyCode';
-export * from './NotFound';

@@ -1,8 +1,9 @@
-import { updateToken } from '../../utils/updateToken';
-import { APIcar } from './serviceApiCar.config';
 import axios from 'axios';
 
-//! -------------------------------NUEVO VEHICULO-----------------------------------
+import { updateToken } from '../../utils/updateToken';
+import { APIcar } from './serviceApiCar.config';
+
+//! -----------------------------NUEVO VEHICULO--------------------------------
 
 export const newCar = async (formData) => {
   return APIcar.post('/registerCar', formData, {
@@ -14,7 +15,7 @@ export const newCar = async (formData) => {
     .catch((error) => error);
 };
 
-//! ---------------------------VER TODOS LOS VEHICULOS---------------------------------
+//! -------------------------VER TODOS LOS VEHICULOS-----------------------------
 
 export const getAllCars = async (formData) => {
   return APIcar.get('/getAllCars', formData, {
@@ -26,7 +27,7 @@ export const getAllCars = async (formData) => {
     .catch((error) => error);
 };
 
-//! -----------------------VER FOTOS DE TODOS LOS VEHICULOS-----------------------------
+//! ---------------------VER FOTOS DE TODOS LOS VEHICULOS---------------------------
 
 const unsplash = axios.create({
   baseURL: 'https://api.unsplash.com/',
@@ -39,8 +40,20 @@ export const getAllCarImages = async () => {
   const response = await unsplash.get('/search/photos', {
     params: {
       query: 'car',
-      per_page: 10, // Cantidad de imágenes que deseas obtener
+      per_page: 10,
     },
   });
   return response.data.results.map((result) => result.urls.regular);
+};
+
+//! --------------------------BORRAR VEHICULO------------------------------------
+
+export const deleteCar = async (carId) => {
+  return APIcar.delete(`/deleteCar/${carId}`, {
+    headers: {
+      Authorization: `Bearer ${updateToken()}`,
+    },
+  })
+    .then((res) => res)
+    .catch((error) => error);
 };

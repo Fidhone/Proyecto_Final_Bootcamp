@@ -1,4 +1,5 @@
 export * from './useChangePasswordError';
+export * from './useDeleteCarError';
 export * from './useDeleteUser';
 export * from './useForgotPasswordError';
 export * from './useLoginError';
