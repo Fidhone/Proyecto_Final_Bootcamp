@@ -40,7 +40,7 @@ export const getAllCarImages = async () => {
   const response = await unsplash.get('/search/photos', {
     params: {
       query: 'car',
-      per_page: 10,
+      per_page: 20,
     },
   });
   return response.data.results.map((result) => result.urls.regular);

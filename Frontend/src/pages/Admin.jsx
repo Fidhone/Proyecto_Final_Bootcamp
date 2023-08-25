@@ -7,6 +7,7 @@ import { newCar } from '../service/API_car/car.service';
 export const Admin = () => {
   const { register, handleSubmit, reset } = useForm();
   const [res, setRes] = useState({});
+  const [clear, setClear] = useState(false);
 
   //! ---------- FUNCION QUE GESTIONA LA DATA DEL FORMULARIO-----------------------
   const formSubmit = async (formData) => {
@@ -15,11 +16,19 @@ export const Admin = () => {
 
   //! ---------USEffect ASOCIADO A LA RES PARA GESTIONAR LOS ERRORES----------------
   useEffect(() => {
-    useRegisterCarError(res);
-    if (res.status === 201) {
-      reset();
-    }
-  }, [res, reset]);
+    useRegisterCarError(res, setRes, setClear);
+  }, [res]);
+
+  useEffect(() => {
+    reset({
+      marca: '',
+      modelo: '',
+      color: '',
+      año: '',
+      kilometros: '',
+      precio: '',
+    });
+  }, [clear]);
 
   return (
     <div className="form-wrap">
@@ -47,11 +56,13 @@ export const Admin = () => {
         </div>
         <div className="form-group">
           <label htmlFor="custom-input">Precio:</label>
-          <input type="text" {...register('precio', { required: true })} />
+          <input
+            autoComplete="false"
+            type="text"
+            {...register('precio', { required: true })}
+          />
         </div>
-        <button className="btn" type="submit">
-          Registrar
-        </button>
+        <button className="btn">Registrar</button>
       </form>
     </div>
   );

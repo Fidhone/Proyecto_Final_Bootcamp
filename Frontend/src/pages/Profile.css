@@ -50,3 +50,16 @@
   min-height: 55vh;
   margin-bottom: 5vh;
 }
+
+.iconCurrentUserInfo {
+  object-fit: cover;
+  color: aliceblue;
+  font-size: x-large;
+}
+
+.iconCurrentUserInfo:hover {
+  text-decoration: underline;
+  text-decoration-color: aliceblue;
+  color: aliceblue;
+  cursor: pointer;
+}

@@ -3,8 +3,8 @@ import Swal from 'sweetalert2/dist/sweetalert2.all.js';
 const alertMessages = {
   200: {
     icon: 'success',
-    title: 'Vehicle registered!',
-    text: 'Register ok ✅',
+    title: 'Vehiculo registrado!',
+    text: 'Registro ok ✅',
   },
   500: {
     icon: 'error',
@@ -23,7 +23,7 @@ const alertMessages = {
   },
 };
 
-export const useRegisterCarError = (res) => {
+export const useRegisterCarError = (res, setRes, setClear) => {
   const { status, data } = res?.response || res;
 
   const alertConfig = alertMessages[status] || alertMessages[data] || null;
@@ -33,5 +33,8 @@ export const useRegisterCarError = (res) => {
       showConfirmButton: false,
       timer: 1500,
     });
+  }
+  if (res.status === 200) {
+    setClear(() => true);
   }
 };

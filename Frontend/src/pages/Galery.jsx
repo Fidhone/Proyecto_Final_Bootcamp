@@ -9,6 +9,7 @@ import {
   getAllCars,
 } from '../service/API_car/car.service.js';
 import { useAuth } from '../context/authContext';
+import { postFavorite } from '../service/API_user/user.service';
 
 export const Galery = () => {
   const { user } = useAuth();
@@ -21,6 +22,20 @@ export const Galery = () => {
   const [precioMinFilter, setPrecioMinFilter] = useState('');
   const [precioMaxFilter, setPrecioMaxFilter] = useState('');
   const [res, setRes] = useState({});
+  const [userFavorites, setUserFavorites] = useState([]);
+
+  const handleAddToFavorites = async (carId) => {
+    try {
+      const response = await postFavorite(user._id, carId); // Llama a la API para agregar a favoritos
+      if (response.status === 200) {
+        setUserFavorites([...userFavorites, carId]); // Actualiza la lista de favoritos en el estado local
+      }
+    } catch (error) {
+      console.error('Error al agregar a favoritos:', error);
+    }
+  };
+
+  //!---------GESTION EN OBTENCION DE VEHICULOS E IMAGENES DEL MISMO--------------
 
   useEffect(() => {
     const fetchData = async () => {
@@ -48,6 +63,8 @@ export const Galery = () => {
     };
     fetchCarImages();
   }, []);
+
+  //!-------------------LOGICA DE FILTROS-------------------------
 
   const aplicarFiltros = () => {
     const autosFiltrados = cars
@@ -80,6 +97,8 @@ export const Galery = () => {
       console.error('Error al obtener la lista de coches:', error);
     }
   };
+
+  //!----------------BORRADO DE VEHICULOS----------------------
 
   const handleDeleteCar = async (carId) => {
     try {
@@ -173,6 +192,14 @@ export const Galery = () => {
                   onClick={() => handleDeleteCar(car._id)}
                 >
                   Borrar vehículo
+                </button>
+              )}
+              {!userFavorites.includes(car._id) && (
+                <button
+                  className="btn-addToFavorites"
+                  onClick={() => handleAddToFavorites(car._id)}
+                >
+                  Agregar a Favoritos
                 </button>
               )}
             </div>

@@ -5,3 +5,4 @@ export * from './FormProfile';
 export * from './Navbar';
 export * from './Protected';
 export * from './ProtectedCheckChildren';
+export * from './CurrentUserInfo';

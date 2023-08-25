@@ -77,3 +77,15 @@ export const deleteUser = async () => {
     .then((res) => res)
     .catch((error) => error);
 };
+
+//! --------------------------AÑADIR A FAVORITOS------------------------------------
+
+export const postFavorite = async (carId) => {
+  return APIuser.post(`/users/postFavorite/${carId}`, {
+    headers: {
+      Authorization: `Bearer ${updateToken()}`,
+    },
+  })
+    .then((res) => res)
+    .catch((error) => error);
+};
