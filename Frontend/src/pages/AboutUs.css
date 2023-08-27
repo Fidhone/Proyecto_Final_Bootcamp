@@ -3,13 +3,14 @@
   margin: 2rem 0;
   font-size: 2.5rem;
   color: goldenrod;
-  margin-top: 5rem;
+  margin-top: 8rem;
 }
 
 .accordion {
   width: 100%;
   max-width: 1000px;
   margin: 15rem auto;
+  margin-top: 10rem;
 }
 
 .accordion-item {

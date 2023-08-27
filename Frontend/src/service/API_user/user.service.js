@@ -4,7 +4,6 @@ import { APIuser } from './serviceApiUser.config';
 //! ------------------------------- REGISTER -----------------------------------
 
 export const registerUser = async (formData) => {
-  console.log(formData);
   return APIuser.post('/users/register', formData)
     .then((res) => res)
     .catch((error) => error);
@@ -81,11 +80,35 @@ export const deleteUser = async () => {
 //! --------------------------AÑADIR A FAVORITOS------------------------------------
 
 export const postFavorite = async (carId) => {
-  return APIuser.post(`/users/postFavorite/${carId}`, {
-    headers: {
-      Authorization: `Bearer ${updateToken()}`,
+  return APIuser.post(
+    `/users/postFavorite`,
+    {
+      carId: carId,
     },
-  })
+    {
+      headers: {
+        Authorization: `Bearer ${updateToken()}`,
+      },
+    },
+  )
+    .then((res) => res)
+    .catch((error) => error);
+};
+
+// //! ------------------------QUITAR DE FAVORITOS-----------------------------------
+
+export const removeFavorite = async (carId) => {
+  return APIuser.delete(
+    `/users/removeFavorite`,
+    {
+      carId: carId,
+    },
+    {
+      headers: {
+        Authorization: `Bearer ${updateToken()}`,
+      },
+    },
+  )
     .then((res) => res)
     .catch((error) => error);
 };

@@ -421,9 +421,10 @@ const getById = async (req, res, next) => {
 
 const postFavorite = async (req, res, next) => {
   try {
-    const { userId, carId } = req.body;
+    const { carId } = req.body;
+    const { _id } = req.user;
 
-    const user = await User.findById(userId);
+    const user = await User.findById(_id);
     const car = await Car.findById(carId);
 
     if (!user) {
@@ -436,16 +437,56 @@ const postFavorite = async (req, res, next) => {
     if (user.favoritos.includes(carId)) {
       return res.status(400).json('Car allready exist in favorite`s list');
     }
-    if (car.usuarios.includes(userId)) {
+    if (car.usuarios.includes(_id)) {
       return res.status(400).json('User allready exist in user`s list');
     }
 
     user.favoritos.push(carId);
     await user.save();
-    car.usuarios.push(userId);
+    car.usuarios.push(_id);
     await car.save();
 
     res.status(200).json('Car add to favorite`s list');
+  } catch (error) {
+    return next(error);
+  }
+};
+
+//! ------------------------------------------------------------------------
+//? ---------------------ELIMINAR VEHICULO DE FAVORITOS---------------------
+//! ------------------------------------------------------------------------
+
+const removeFavorite = async (req, res, next) => {
+  try {
+    const { carId } = req.body;
+    const { _id } = req.user;
+
+    const user = await User.findById(_id);
+    const car = await Car.findById(carId);
+
+    if (!user) {
+      return res.status(404).json('User not found');
+    }
+    if (!car) {
+      return res.status(404).json('Car not found');
+    }
+
+    if (!user.favoritos.includes(carId)) {
+      return res.status(400).json('Car not found in favorite`s list');
+    }
+    if (!car.usuarios.includes(_id)) {
+      return res.status(400).json('User not found in user`s list');
+    }
+
+    // Utilizamos $pull para eliminar el carId del array de favoritos del usuario
+    user.favoritos.pull(carId);
+    await user.save();
+
+    // Utilizamos $pull para eliminar el userId del array de usuarios en el coche
+    car.usuarios.pull(_id);
+    await car.save();
+
+    res.status(200).json('Car removed from favorite`s list');
   } catch (error) {
     return next(error);
   }
@@ -464,4 +505,5 @@ module.exports = {
   getAllUsers,
   getById,
   postFavorite,
+  removeFavorite,
 };

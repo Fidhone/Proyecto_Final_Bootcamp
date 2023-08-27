@@ -1,5 +1,6 @@
-import React from 'react';
 import './CurrentUserInfo.css';
+
+import React from 'react';
 export const CurrentUserInfo = ({ user }) => {
   return (
     <>

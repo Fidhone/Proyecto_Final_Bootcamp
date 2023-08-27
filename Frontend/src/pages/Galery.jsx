@@ -1,15 +1,15 @@
 import './Galery.css';
 
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
+import { useAuth } from '../context/authContext';
 import { useDeleteCarError } from '../hooks';
 import {
   deleteCar,
   getAllCarImages,
   getAllCars,
 } from '../service/API_car/car.service.js';
-import { useAuth } from '../context/authContext';
-import { postFavorite } from '../service/API_user/user.service';
+import { postFavorite, removeFavorite } from '../service/API_user/user.service';
 
 export const Galery = () => {
   const { user } = useAuth();
@@ -23,15 +23,22 @@ export const Galery = () => {
   const [precioMaxFilter, setPrecioMaxFilter] = useState('');
   const [res, setRes] = useState({});
   const [userFavorites, setUserFavorites] = useState([]);
+  console.log(user);
 
   const handleAddToFavorites = async (carId) => {
     try {
-      const response = await postFavorite(user._id, carId); // Llama a la API para agregar a favoritos
+      const response = await postFavorite(carId);
+
       if (response.status === 200) {
-        setUserFavorites([...userFavorites, carId]); // Actualiza la lista de favoritos en el estado local
+        if (userFavorites.includes(carId)) {
+          await removeFavorite(carId); // Llamar al servicio para quitar de favoritos
+          setUserFavorites((prevFavorites) => prevFavorites.filter((id) => id !== carId));
+        } else {
+          setUserFavorites((prevFavorites) => [...prevFavorites, carId]);
+        }
       }
     } catch (error) {
-      console.error('Error al agregar a favoritos:', error);
+      console.error('Error al agregar/quitar a favoritos:', error);
     }
   };
 
@@ -194,14 +201,16 @@ export const Galery = () => {
                   Borrar vehículo
                 </button>
               )}
-              {!userFavorites.includes(car._id) && (
-                <button
-                  className="btn-addToFavorites"
-                  onClick={() => handleAddToFavorites(car._id)}
-                >
-                  Agregar a Favoritos
-                </button>
-              )}
+              <button
+                className={`btn-favorite ${
+                  userFavorites.includes(car._id) ? 'added' : ''
+                }`}
+                onClick={() => handleAddToFavorites(car._id)}
+              >
+                {userFavorites.includes(car._id)
+                  ? 'Quitar de Favoritos'
+                  : 'Agregar a Favoritos'}
+              </button>
             </div>
           </div>
         ))}

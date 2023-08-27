@@ -105,3 +105,16 @@ body {
 .btn-deleteCar:active {
   opacity: 0.5;
 }
+
+.btn-favorite {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.added {
+  background-color: #e74c3c;
+}
