@@ -32,7 +32,7 @@ UserRoutes.patch('/changepassword', [isAuth], modifyPassword);
 // UserRoutes.patch('/changeEmail/:_id', [isAuth], modifyEmail);
 UserRoutes.patch('/update/update', [isAuth], update);
 UserRoutes.delete('/', [isAuth], deleteUser);
-UserRoutes.delete('/removeFavorite', [isAuth], removeFavorite);
+UserRoutes.delete('/removeFavorite/:id', [isAuth], removeFavorite);
 
 //! -------REDIRECT --------------------
 

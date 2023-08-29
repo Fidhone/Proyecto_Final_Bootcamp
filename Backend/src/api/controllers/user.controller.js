@@ -397,7 +397,7 @@ const getAllUsers = async (req, res, next) => {
 };
 
 //! ------------------------------------------------------------------------
-//? --------------------------VER VEHICULOS POR ID--------------------------
+//? --------------------------VER USUARIOS POR ID--------------------------
 //! ------------------------------------------------------------------------
 
 const getById = async (req, res, next) => {
@@ -440,13 +440,17 @@ const postFavorite = async (req, res, next) => {
     if (car.usuarios.includes(_id)) {
       return res.status(400).json('User allready exist in user`s list');
     }
+    await User.findByIdAndUpdate(_id, {
+      $push: { favoritos: carId },
+    });
 
-    user.favoritos.push(carId);
-    await user.save();
-    car.usuarios.push(_id);
-    await car.save();
+    await Car.findByIdAndUpdate(carId, {
+      $push: { usuarios: _id },
+    });
 
-    res.status(200).json('Car add to favorite`s list');
+    res
+      .status(200)
+      .json({ data: 'Car add to favorite`s list', allCar: await Car.find() });
   } catch (error) {
     return next(error);
   }
@@ -458,11 +462,11 @@ const postFavorite = async (req, res, next) => {
 
 const removeFavorite = async (req, res, next) => {
   try {
-    const { carId } = req.body;
+    const { id } = req.params;
     const { _id } = req.user;
 
     const user = await User.findById(_id);
-    const car = await Car.findById(carId);
+    const car = await Car.findById(id);
 
     if (!user) {
       return res.status(404).json('User not found');
@@ -471,22 +475,25 @@ const removeFavorite = async (req, res, next) => {
       return res.status(404).json('Car not found');
     }
 
-    if (!user.favoritos.includes(carId)) {
+    if (!user.favoritos.includes(id)) {
       return res.status(400).json('Car not found in favorite`s list');
     }
     if (!car.usuarios.includes(_id)) {
       return res.status(400).json('User not found in user`s list');
     }
 
-    // Utilizamos $pull para eliminar el carId del array de favoritos del usuario
-    user.favoritos.pull(carId);
-    await user.save();
+    await User.findByIdAndUpdate(_id, {
+      $pull: { favoritos: id },
+    });
 
-    // Utilizamos $pull para eliminar el userId del array de usuarios en el coche
-    car.usuarios.pull(_id);
-    await car.save();
+    await Car.findByIdAndUpdate(id, {
+      $pull: { usuarios: _id },
+    });
 
-    res.status(200).json('Car removed from favorite`s list');
+    res.status(200).json({
+      data: 'Car removed from favorite`s list',
+      allCar: await Car.find(),
+    });
   } catch (error) {
     return next(error);
   }

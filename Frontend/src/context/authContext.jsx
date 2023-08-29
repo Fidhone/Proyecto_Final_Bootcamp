@@ -7,14 +7,12 @@ export const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState(() => {
     const data = localStorage.getItem('user');
     const parseUser = JSON.parse(data);
-    console.log(data);
     if (data) {
       return parseUser;
     } else {
       return null;
     }
   });
-  console.log(user);
   //! ALLUSER -----solo cuando me registro para guardar la respuesta--
 
   const [allUser, setAllUser] = useState({

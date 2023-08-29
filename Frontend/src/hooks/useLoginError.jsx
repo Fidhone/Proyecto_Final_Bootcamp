@@ -20,9 +20,11 @@ export const useLoginError = (res, setLoginOk, userlogin) => {
       token: res.data.token,
       user: res.data.user.name,
       email: res.data.user.email,
-      image: res.data.user.image,
       check: res.data.user.check,
+      gender: res.data.user.gender,
       rol: res.data.user.rol,
+      _id: res.data.user._id,
+      favoritos: res.data.user.favoritos,
     };
 
     const dataString = JSON.stringify(dataCustom);

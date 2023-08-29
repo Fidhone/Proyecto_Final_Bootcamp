@@ -22,23 +22,34 @@ export const Galery = () => {
   const [precioMinFilter, setPrecioMinFilter] = useState('');
   const [precioMaxFilter, setPrecioMaxFilter] = useState('');
   const [res, setRes] = useState({});
-  const [userFavorites, setUserFavorites] = useState([]);
-  console.log(user);
 
   const handleAddToFavorites = async (carId) => {
-    try {
-      const response = await postFavorite(carId);
+    // tenemos que mirar si el usurio esta como fav del coche o no
+    // si lo esta vamos ac ejecutar el servicio dee quitar de fav
+    // y si no esta ejecutamos el servicio de post en fav
+    //! ------> vamos a filtrar los coches y quedarnos unicamente con el que hemos pinchado a favoritos
+    const carIDhandleFavorite = cars.find((item) => item._id == carId);
 
-      if (response.status === 200) {
-        if (userFavorites.includes(carId)) {
-          await removeFavorite(carId); // Llamar al servicio para quitar de favoritos
-          setUserFavorites((prevFavorites) => prevFavorites.filter((id) => id !== carId));
-        } else {
-          setUserFavorites((prevFavorites) => [...prevFavorites, carId]);
+    if (carIDhandleFavorite.usuarios.includes(user._id)) {
+      try {
+        const response = await removeFavorite(carId);
+
+        if (response.status === 200) {
+          setCars(response.data.allCar);
         }
+      } catch (error) {
+        console.error('Error al agregar/quitar a favoritos:', error);
       }
-    } catch (error) {
-      console.error('Error al agregar/quitar a favoritos:', error);
+    } else {
+      try {
+        const response = await postFavorite(carId);
+
+        if (response.status === 200) {
+          setCars(response.data.allCar);
+        }
+      } catch (error) {
+        console.error('Error al agregar/quitar a favoritos:', error);
+      }
     }
   };
 
@@ -203,11 +214,11 @@ export const Galery = () => {
               )}
               <button
                 className={`btn-favorite ${
-                  userFavorites.includes(car._id) ? 'added' : ''
+                  car.usuarios.includes(user._id) ? 'added' : ''
                 }`}
                 onClick={() => handleAddToFavorites(car._id)}
               >
-                {userFavorites.includes(car._id)
+                {car.usuarios.includes(user._id)
                   ? 'Quitar de Favoritos'
                   : 'Agregar a Favoritos'}
               </button>

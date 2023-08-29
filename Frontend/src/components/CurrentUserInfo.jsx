@@ -16,6 +16,9 @@ export const CurrentUserInfo = ({ user }) => {
           <strong>Rol:</strong> {user.rol}
         </p>
         <p>
+          <strong>Genero:</strong> {user.gender}
+        </p>
+        <p>
           <strong>Usuario verificado:</strong> {user.check ? 'si' : 'no'}
         </p>
         <p>

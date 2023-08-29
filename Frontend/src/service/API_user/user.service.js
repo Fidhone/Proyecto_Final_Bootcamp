@@ -97,12 +97,10 @@ export const postFavorite = async (carId) => {
 
 // //! ------------------------QUITAR DE FAVORITOS-----------------------------------
 
-export const removeFavorite = async (carId) => {
+export const removeFavorite = async (cardId) => {
   return APIuser.delete(
-    `/users/removeFavorite`,
-    {
-      carId: carId,
-    },
+    `/users/removeFavorite/${cardId}`,
+
     {
       headers: {
         Authorization: `Bearer ${updateToken()}`,
