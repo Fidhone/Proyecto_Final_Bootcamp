@@ -3,7 +3,7 @@ export const useChangePasswordError = (res, setRes, setUser) => {
   //! ---------------------------- 200 : updateUser: TRUE
   if (res?.data?.updateUser?.toString() == 'true') {
     setUser(() => null);
-    localStorage.removeItem('user');
+    sessionStorage.removeItem('user');
     Swal.fire({
       icon: 'success',
       title: 'Change password ok ✅',

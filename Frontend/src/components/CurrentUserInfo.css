@@ -19,3 +19,57 @@
   font-size: x-large;
   margin-top: 3rem;
 }
+
+@media (max-width: 767px) {
+  .currentUserInfo {
+    padding: 10px;
+    /* Reducción del padding en pantallas más pequeñas */
+    margin: 2rem 0.5rem;
+    /* Margen superior e inferior más pequeño y margen lateral de 0.5rem */
+  }
+
+  .h2-current {
+    font-size: medium;
+    /* Ajusta el tamaño de fuente aún más para pantallas muy pequeñas */
+    margin-top: 1.5rem;
+    /* Margen superior más pequeño */
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .currentUserInfo {
+    margin: 3rem auto;
+    /* Centrar en pantallas medianas */
+  }
+
+  .h2-current {
+    font-size: large;
+    /* Tamaño de fuente para pantallas medianas */
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .currentUserInfo {
+    max-width: 80%;
+    /* Ancho máximo reducido en pantallas más grandes */
+  }
+
+  .h2-current {
+    font-size: x-large;
+    /* Tamaño de fuente para pantallas grandes */
+  }
+}
+
+@media (min-width: 1200px) {
+  .currentUserInfo {
+    max-width: 1000px;
+    /* Ancho máximo en pantallas muy grandes */
+    margin: 5rem auto;
+    /* Centrar en pantallas muy grandes */
+  }
+
+  .h2-current {
+    font-size: 2.5rem;
+    /* Tamaño de fuente para pantallas muy grandes */
+  }
+}

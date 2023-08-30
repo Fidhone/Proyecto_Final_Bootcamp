@@ -39,7 +39,7 @@ body {
   border-bottom: 1px solid #ccc;
   margin-bottom: 3rem;
   margin-top: 5rem;
-  position: relative;
+
 }
 
 .filters select,
@@ -93,6 +93,7 @@ body {
   -webkit-user-select: none;
   touch-action: manipulation;
   vertical-align: middle;
+  margin-bottom: 2rem;
 }
 
 .btn-deleteCar:hover,
@@ -104,6 +105,7 @@ body {
 
 .btn-deleteCar:active {
   opacity: 0.5;
+
 }
 
 .btn-favorite {
@@ -113,6 +115,7 @@ body {
   padding: 8px 16px;
   cursor: pointer;
   transition: background-color 0.3s;
+  border-radius: 6px;
 }
 
 .added {

@@ -21,9 +21,6 @@ export const CurrentUserInfo = ({ user }) => {
         <p>
           <strong>Usuario verificado:</strong> {user.check ? 'si' : 'no'}
         </p>
-        <p>
-          <strong>Favoritos:</strong> {user.favoritos}
-        </p>
       </div>
     </>
   );

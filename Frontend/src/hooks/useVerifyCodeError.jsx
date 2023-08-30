@@ -12,9 +12,9 @@ export const useVerifyCodeError = (
 
   //! ------------------ 200 : todo ok ---> testCheckOk: true
   if (res?.data?.testCheckOk?.toString() == 'true') {
-    // comprobamos que vengas del login con el localStorage
-    if (localStorage.getItem('user')) {
-      const currentUser = localStorage.getItem('user');
+    // comprobamos que vengas del login con el sessionStorage
+    if (sessionStorage.getItem('user')) {
+      const currentUser = sessionStorage.getItem('user');
       const parseCurrentUser = JSON.parse(currentUser);
       const customUser = {
         ...parseCurrentUser,
@@ -23,7 +23,7 @@ export const useVerifyCodeError = (
       // como quiero volver a meterlo al local tengo que volver a convertirlo en un string
       const customUserString = JSON.stringify(customUser);
       setUser(() => customUser);
-      localStorage.setItem('user', customUserString);
+      sessionStorage.setItem('user', customUserString);
     }
     setOkCheck(true);
     Swal.fire({

@@ -7,7 +7,7 @@ export const useRegisterError = (res, setOkRegister, setRes, setAllUser) => {
   if (res?.status == 201) {
     console.log('entro en el if 🎉');
     const dataToString = JSON.stringify(res);
-    localStorage.setItem('data', dataToString);
+    sessionStorage.setItem('data', dataToString);
     setOkRegister(() => true);
     setAllUser(() => res.data);
 

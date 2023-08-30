@@ -5,7 +5,7 @@ const AuthContext = createContext();
 
 export const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState(() => {
-    const data = localStorage.getItem('user');
+    const data = sessionStorage.getItem('user');
     const parseUser = JSON.parse(data);
     if (data) {
       return parseUser;
@@ -38,8 +38,8 @@ export const AuthContextProvider = ({ children }) => {
     //     imagen: asjjsdkgkl
     // }
 
-    // primero lo meto en el localstorage, recordar luego meterlo en el sessionStorage
-    localStorage.setItem('user', data);
+    // primero lo meto en el sessionStorage, recordar luego meterlo en el sessionStorage
+    sessionStorage.setItem('user', data);
 
     // despues lo metemos parseado al estado global que setea nuestro usuario logado
     const parseUser = JSON.parse(data);
@@ -50,7 +50,7 @@ export const AuthContextProvider = ({ children }) => {
   //! -----------------------------------------------------------------------
 
   const logout = () => {
-    localStorage.removeItem('user');
+    sessionStorage.removeItem('user');
     setUser(null);
     navigate('/login');
   };
@@ -60,13 +60,13 @@ export const AuthContextProvider = ({ children }) => {
   //! -----------------------------------------------------------------------
 
   const bridgeData = (state) => {
-    const data = localStorage.getItem('data');
+    const data = sessionStorage.getItem('data');
     const dataJson = JSON.parse(data);
     console.log(dataJson);
     switch (state) {
       case 'ALLUSER':
         setAllUser(dataJson);
-        localStorage.removeItem('data');
+        sessionStorage.removeItem('data');
 
         break;
 

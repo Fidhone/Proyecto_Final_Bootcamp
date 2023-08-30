@@ -6,8 +6,7 @@
 
 .form-main {
   background: linear-gradient(to bottom, #00000024, #00000024),
-    url(https://res.cloudinary.com/dqifboxk5/image/upload/v1686209968/contact-us-2_y8zzx7.jpg)
-      no-repeat center;
+    url(https://res.cloudinary.com/dqifboxk5/image/upload/v1686209968/contact-us-2_y8zzx7.jpg) no-repeat center;
   background-size: cover;
   min-height: 100vh;
   display: flex;
@@ -15,7 +14,7 @@
   align-items: center;
   justify-content: center;
   margin-top: 2%;
-  position: relative;
+
 
   .main-wrapper {
     border-radius: 10px;
@@ -24,6 +23,7 @@
     box-shadow: 0 0 5px 5px #00000020;
     backdrop-filter: blur(5px);
     background-color: #ffffff85;
+
 
     @media screen and (max-width: 991px) {
       width: 70%;
@@ -69,8 +69,8 @@
             border: 1px solid gray;
           }
 
-          &:valid ~ .form-label,
-          &:focus ~ .form-label {
+          &:valid~.form-label,
+          &:focus~.form-label {
             color: gray;
             top: 30%;
             transform: translateY(-70%);
@@ -127,8 +127,8 @@
             border: 1px solid gray;
           }
 
-          &:valid ~ .form-textarea-label,
-          &:focus ~ .form-textarea-label {
+          &:valid~.form-textarea-label,
+          &:focus~.form-textarea-label {
             color: gray;
             top: 18%;
             transform: translateY(-82%);

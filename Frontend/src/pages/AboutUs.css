@@ -28,7 +28,6 @@
   font-weight: bold;
   display: flex;
   align-items: center;
-  position: relative;
   cursor: pointer;
   font-size: 1.5rem;
 }
@@ -58,8 +57,26 @@
   font-size: 1.2rem;
 }
 
+@media (max-width: 1200px) {
+  .accordion {
+    margin: 3rem auto;
+  }
+
+  .h1-faqs {
+    margin-top: 5rem;
+  }
+
+  .accordion-item-header {
+    font-size: 1.2rem;
+  }
+}
+
 @media (max-width: 767px) {
-  html {
-    font-size: 14px;
+  .h1-faqs {
+    font-size: 2rem;
+  }
+
+  .accordion-item-header {
+    font-size: 1.1rem;
   }
 }

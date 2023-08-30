@@ -18,7 +18,7 @@ export const VerifyCode = () => {
 
   //! 1) ---------------LAS FUNCIONES QUE GESTIONAN LOS SUBMIT DE LOS FORMULARIOS--------
   const formSubmit = async (formData) => {
-    const userLocal = localStorage.getItem('user');
+    const userLocal = sessionStorage.getItem('user');
 
     if (userLocal == null) {
       /// -----> este usuario viene del registro porque no se a logado previamente

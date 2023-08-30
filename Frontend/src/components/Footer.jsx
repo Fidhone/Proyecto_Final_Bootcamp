@@ -12,9 +12,9 @@ export const Footer = () => {
         <p className="footer-links">
           <a className="link-1">Inicio</a>
 
-          <a>Blog</a>
-
           <a>Galeria</a>
+
+          <a>Perfil</a>
 
           <a>Faq</a>
 

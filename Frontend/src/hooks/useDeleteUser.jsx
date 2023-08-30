@@ -23,7 +23,7 @@ export const useDeleteUser = (setUser) => {
             timer: 1500,
           });
           setUser(() => null);
-          localStorage.removeItem('user');
+          sessionStorage.removeItem('user');
           window.location.href = '/';
           break;
 
